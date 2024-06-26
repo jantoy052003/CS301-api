@@ -26,7 +26,8 @@ Route::post('/login', [AuthController::class, 'login']);
 //Protected
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
-    
+    Route::put('/profile/{id}', [AuthController::class, 'update']);
+    Route::get('/profile', [AuthController::class, 'getProfile']);
     Route::get('/image/{userId}', [ImageController::class, 'getImage'])->where('userId', '[0-9]+');
     Route::post('/upload/{userId}', [ImageController::class, 'upload']);
 });

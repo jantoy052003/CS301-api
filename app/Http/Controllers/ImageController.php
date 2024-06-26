@@ -22,7 +22,7 @@ class ImageController extends Controller
         $user->save();
 
         $response = [
-            'message' => 'Uplaod successful',
+            'message' => 'Upload successful',
         ];
 
         return response($response, 200);
