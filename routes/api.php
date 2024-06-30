@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\Menu_listController;
@@ -28,6 +29,11 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::put('/profile/{id}', [AuthController::class, 'update']);
     Route::get('/profile', [AuthController::class, 'getProfile']);
+
+    //Route::post('/address/{id}', [AddressController::class, 'create']);
+    //Route::put('/address/{id}', [AddressController::class, 'updateAddress']);
+    //Route::get('profile/{id}', [AddressController::class, 'getAddress']);
+
     Route::get('/image/{userId}', [ImageController::class, 'getImage'])->where('userId', '[0-9]+');
     Route::post('/upload/{userId}', [ImageController::class, 'upload']);
 });
